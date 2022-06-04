@@ -1,0 +1,37 @@
+<%= form_with(model: leader) do |form| %>
+  <% if leader.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(leader.errors.count, "error") %> prohibited this leader from being saved:</h2>
+
+      <ul>
+        <% leader.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :Leader, style: "display: block" %>
+    <%= form.text_field :Leader %>
+  </div>
+
+  <div>
+    <%= form.label :Civilization, style: "display: block" %>
+    <%= form.text_field :Civilization %>
+  </div>
+
+  <div>
+    <%= form.label :LeaderAbility, style: "display: block" %>
+    <%= form.text_field :LeaderAbility %>
+  </div>
+
+  <div>
+    <%= form.label :LeaderAgenda, style: "display: block" %>
+    <%= form.text_field :LeaderAgenda %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
