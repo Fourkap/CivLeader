@@ -65,6 +65,6 @@ class LeadersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def leader_params
-      params.require(:leader).permit(:Leader, :Civilization, :LeaderAbility, :LeaderAgenda)
+      params.require(:leader).permit(:Leader, :Civilization, :LeaderAbility, :LeaderAgenda, :image)
     end
 end

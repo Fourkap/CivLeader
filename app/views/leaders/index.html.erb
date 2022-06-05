@@ -1,14 +1,86 @@
 <p style="color: green"><%= notice %></p>
-
-<h1>Leaders</h1>
-
-<div id="leaders">
-  <% @leaders.each do |leader| %>
-    <%= render leader %>
-    <p>
-      <%= link_to "Show this leader", leader %>
-    </p>
-  <% end %>
+<div class="container">
+<div class="text-center">
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Civ1_logo_v1.svg/langfr-1920px-Civ1_logo_v1.svg.png" style="height: 130px; width: 480px;">
+  <h1>Leaders</h1>
+</div>
 </div>
 
-<%= link_to "New leader", new_leader_path %>
+
+<div id="leaders">
+
+  <div class="container mt-5">
+    <div class="row col-md-6">
+      <%= link_to "New leader", new_leader_path %>
+    </div>
+      <table class="table table-borderless table-responsive card-1 p-4">
+        <thead>
+        <tr class="border-bottom">
+        <th>
+          <span class="ml-2">Leader</span>
+        </th>
+        <th>
+          <span class="ml-2">Civilization</span>
+        </th>
+        <th>
+          <span class="ml-2">Leader Ability</span>
+        </th>
+        <th>
+          <span class="ml-2">Leader Agenda</span>
+        </th>
+        <th>
+          <span class="ml-4">Action</span>
+        </th>
+      </tr>
+      </thead>
+      <tbody>
+  <% @leaders.each do |leader| %>
+
+        <tr class="border-bottom">
+          <td>
+            <div class="p-2 d-flex flex-row align-items-center mb-2">
+              <img src="<%= leader.image_url if leader.image %>" style="width: 60px;"/>
+              <div class="d-flex flex-column ml-2">
+                <span class="d-block font-weight-bold"><%= leader.Leader %></span>
+              </div>
+            </div>
+
+          </td>
+          <td>
+            <div class="p-2">
+              <span class="font-weight-bold"><%=leader.Civilization %></span>
+            </div>
+          </td>
+          <td>
+            <div class="p-2 d-flex flex-column">
+              <span><%=leader.LeaderAbility %></span>
+            </div>
+          </td>
+          <td>
+            <div class="p-2 d-flex flex-column">
+              <span><%=leader.LeaderAgenda %></span>
+            </div>
+          </td>
+          <td>
+            <div class="p-2 icons">
+              <i class="fa fa-phone text-danger">    <p>
+                <%= link_to "Show this leader", leader %>
+              </p></i>
+              <i class="fa fa-adjust text-danger"></i>
+              <i class="fa fa-share"></i>
+            </div>
+          </td>
+        </tr>
+
+
+
+
+  <% end %>
+
+  </tbody>
+  </table>
+  </div>
+</div>
+
+
+
